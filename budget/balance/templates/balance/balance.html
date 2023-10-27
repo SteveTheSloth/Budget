@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/balance/balance.css">
+    <title>Balance</title>
+</head>
+<body>
+    <div class="content">
+        <div class="top">
+    <h4>
+        {% if user.group == None %}
+        {{user.username}}
+        {% else %}
+        {{user.group}}
+        {% endif %}</a> 
+        <a href="{% url 'group_select' %}">Group/Individual Select</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </h4>
+    </div>
+    <div class="topline"></div>
+    <h1>Balance</h1>   
+
+    <form>
+        
+        <h3>
+            <a href="{% url 'balance' prev_month_year %}"><</a>
+            {{show_month}} {{show_year}}
+            <a href="{% url 'balance' next_month_year %}">></a><br>
+        </h3>
+        <div class="amount">{{month_amount}}</div>
+        
+
+    </form>
+    
+    <div class="bottomline"></div>
+    <br>
+    <nav>
+        <a href="{% url 'welcome' %}">Home</a>
+        <a href="{% url 'expenses' %}">Expenses</a>
+        <a href="{% url 'incomes' %}">Incomes</a>
+        <a href="{% url 'loans' %}">Loans</a>
+        <a href="{% url 'create' %}">Add new Transaction</a>
+        <a href="{% url 'registration_group' %}">Create a new Group</a>
+        <a href="{% url 'login_group' %}">Join existing Group</a>
+    </nav>
+</div>
+</body>
+</html>
